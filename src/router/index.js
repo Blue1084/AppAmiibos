@@ -1,19 +1,35 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Amiibo from '@/components/amiibo'
+// import Amiibo from '@/components/Amiibo'
 import Home from '@/components/Home'
-import Test from '@/components/Test'
+import Inicial from '@/components/Inicial'
+import Chat from '@/components/Chat'
+import Loging from '@/components/Loging'
+
+
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
     routes: [{
-            path: "/",
+            path: "/inicial",
+            component: Inicial
+        },
+        {
+            path: "/Home",
             component: Home
         },
         {
-            path: "/test",
-            component: Test
+            path: "/Chat",
+            component: Chat
         },
+        {
+            path: "/Loging",
+            component: Loging
+        },
+        // {
+        //     path: "/Amiibo",
+        //     component: Amiibo
+        // },
     ]
 })
