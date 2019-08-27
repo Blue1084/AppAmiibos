@@ -1,7 +1,7 @@
 <template>
   <div class="picture" :style="'background-color:'+a.hexCode">
     <!-- <img :src="amiibo.image">
-<h3>{{amiibo.character}}</h3>
+   <h3>{{amiibo.character}}</h3>
     <p>{{amiibo.amiiboSeries}}</p>-->
 
     <h1>Hola</h1>

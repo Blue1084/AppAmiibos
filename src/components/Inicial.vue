@@ -1,10 +1,10 @@
 <template>
-  <img src="../assets/amiibo_logo.png" />
+  <img class="container" src="../assets/logo_a.png" />
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style scoped>
 </style>
