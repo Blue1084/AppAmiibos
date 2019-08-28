@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '@/components/Home'
 import Inicial from '@/components/Inicial'
 import Chat from '@/components/Chat'
-import Loging from '@/components/Loging'
+import Login from '@/components/Login'
 
 
 
@@ -24,8 +24,8 @@ export default new VueRouter({
             component: Chat
         },
         {
-            path: "/Loging",
-            component: Loging
+            path: "/Login",
+            component: Login
         },
         // {
         //     path: "/Amiibo",
