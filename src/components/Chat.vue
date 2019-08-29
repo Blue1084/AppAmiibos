@@ -8,7 +8,7 @@
         class="input"
         type="text"
         placeholder="Your message..."
-        v-model="NewMissage"
+        v-model="objetoEnviable.texto"
       />
 
       <button id="login" class="button is-info" v-on:click="login">Login</button>
@@ -21,14 +21,16 @@
 export default {
   data() {
     return {
-      mensaje: [],
-      nombre: [],
-      objectoEnviable: [],
-      NewMissage: null
+      // creamos un objeto que contenga el texto que se va a enviar
+      objetoEnviable: {
+        texto: null
+        // le ponemos null por que aun no tiene ningun valor.
+      }
     };
   },
 
   methods: {
+    //   en el methods incorporamos las funciones que se van a realizar.
     login() {
       var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -38,37 +40,19 @@ export default {
         .then(user => alert("Logged"));
     },
     writeNewPost() {
-      this.mensaje.unshift(this.NewMissage);
-      this.NewMissage = null;
-      this.nombre = firebase.auth().currentUser.displayName;
-
-      //   this.objectoEnviable.unshift(this.nombre)
+      this.objetoEnviable.n = firebase.auth().currentUser.displayName;
+      //   n que es la parte de nombre que esta dentro de objeto debe buscarla en la firebase displayName
 
       firebase
         .database()
         .ref("ChatAppAmiibo")
-        .push(objectoEnviable);
+        .push(this.objetoEnviable);
     },
     getPosts() {
       firebase
-        .database()
-        .ref("ChatAppAmiibo")
-        .on("value", function(data) {
-          document.getElementById("posts").innerHTML = "";
-          console.log(Object.values(data.val()));
-
-          let mensajes = Object.values(data.val());
-          for (let i = 0; i < mensajes.length; i++) {
-            let parrafo = document.createElement("p");
-            let nombre = document.createElement("p");
-
-            parrafo.innerHTML = mensajes[i].mensaje;
-            nombre.innerHTML = mensajes[i].nombre;
-
-            document.getElementById("posts").append(parrafo);
-            document.getElementById("posts").append(nombre);
-          }
-        });
+        .database() //ves dentro de firebase a la seccion de database
+        .ref("ChatAppAmiibo") //en la seccion de ChatAppAmiibo
+        .on("value", function(data) {}); //cuando tengas un valor eejecuta esta funcion (data)
     }
   }
 };
@@ -93,7 +77,7 @@ export default {
 
 //   // si el nombre del objeto y el nombre de la variable coincide solo hace falta poner uno solo
 //   // ejemplo: nombre : nombre ---> nombre
-//   let objectoEnviable = {
+//   let objetoEnviable = {
 //     nombre,
 //     mensaje
 //   };
