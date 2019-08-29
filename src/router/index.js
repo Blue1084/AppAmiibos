@@ -2,9 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Amiibo from '@/components/Amiibo'
 import Home from '@/components/Home'
-import Inicial from '@/components/Inicial'
+
 import Chat from '@/components/Chat'
-import Login from '@/components/Login'
+import GamesCollections from '@/components/GamesCollections'
 
 
 
@@ -12,10 +12,8 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
     routes: [{
-            path: "/inicial",
-            component: Inicial
-        },
-        {
+
+
             path: "/Home",
             component: Home
         },
@@ -24,8 +22,8 @@ export default new VueRouter({
             component: Chat
         },
         {
-            path: "/Login",
-            component: Login
+            path: "/GamesCollections",
+            component: GamesCollections
         },
         // {
         //     path: "/Amiibo",

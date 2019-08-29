@@ -2,7 +2,7 @@
   <div class="chat">
     <div id="post" class="box">Loading posts...</div>
 
-    <div v-for="mensaje in mensajes">
+    <div v-for=" (mensaje, i) in mensajes " :key="i">
       <small>
         <i>{{mensaje.n}} said</i>
       </small>

@@ -1,10 +1,10 @@
 <template>
-  <img class="container" src="../assets/logo_a.png" />
+  <h1>En construccion</h1>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style scoped>
+<style>
 </style>
