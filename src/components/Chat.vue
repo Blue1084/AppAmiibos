@@ -2,13 +2,19 @@
   <div class="chat">
     <div id="post" class="box">Loading posts...</div>
 
+    <div v-for="mensaje in mensajes">
+      <small>
+        <i>{{mensaje.n}} said</i>
+      </small>
+      <p>{{mensaje.texto}}</p>
+    </div>
+
     <div class="inputs">
-      <input
+      <textarea
         id="textInput"
-        class="input"
-        type="text"
         placeholder="Your message..."
         v-model="objetoEnviable.texto"
+        v-on:keyup.enter="writeNewPost"
       />
 
       <button id="login" class="button is-info" v-on:click="login">Login</button>
@@ -19,13 +25,19 @@
 
 <script>
 export default {
+  created() {
+    this.getPosts();
+  },
+
   data() {
     return {
       // creamos un objeto que contenga el texto que se va a enviar
       objetoEnviable: {
         texto: null
+
         // le ponemos null por que aun no tiene ningun valor.
-      }
+      },
+      mensajes: []
     };
   },
 
@@ -41,18 +53,31 @@ export default {
     },
     writeNewPost() {
       this.objetoEnviable.n = firebase.auth().currentUser.displayName;
+
       //   n que es la parte de nombre que esta dentro de objeto debe buscarla en la firebase displayName
+      console.log("enviado");
 
       firebase
         .database()
         .ref("ChatAppAmiibo")
         .push(this.objetoEnviable);
     },
-    getPosts() {
+    getPosts(mensajes) {
+      //   firebase
+      //     .database() //ves dentro de firebase a la seccion de database
+      //     .ref("ChatAppAmiibo") //en la seccion de ChatAppAmiibo
+      //     .on("value", function(data) {
+      //       //cuando encuentres un valor ejecuta esta funcion (data)
+
+      //     });
+
       firebase
-        .database() //ves dentro de firebase a la seccion de database
-        .ref("ChatAppAmiibo") //en la seccion de ChatAppAmiibo
-        .on("value", function(data) {}); //cuando tengas un valor eejecuta esta funcion (data)
+        .database()
+        .ref("ChatAppAmiibo")
+        .on("value", snapshot => {
+          this.objetoEnviable.texto = "";
+          this.mensajes = Object.values(snapshot.val());
+        });
     }
   }
 };

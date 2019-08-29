@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div></div>
     <router-link to="/inicial">
       <h2>inicial</h2>
     </router-link>

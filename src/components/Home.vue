@@ -59,7 +59,7 @@ export default {
     filterfigures() {
       return this.amiibos.filter(amiibo => amiibo.type == "Figure");
     },
-    filteryards() {
+    filteryarns() {
       return this.amiibos.filter(amiibo => amiibo.type == "Yarn");
     }
   }
