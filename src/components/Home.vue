@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app" class="row">
     <div v-for="(amiibo,i) in filtercards" :key="i">
       <amiibo :amiibo="amiibo"></amiibo>
     </div>
@@ -10,10 +10,10 @@
       <amiibo :amiibo="amiibo"></amiibo>
     </div>
 
-    <div v-for="(a, index) in amiibos2" :key="index">
+    <div class="contenido container col-5" v-for="(a, index) in amiibos2" :key="index">
       <!-- <img :src="'https://nintendo.com/' + a.boxArtUrl" alt /> -->
-      <img :src="'https://nintendo.com/' + a.figureURL" alt />
-      <h1 v-html="a.amiiboName"></h1>
+      <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
+      <p class="name" v-html="a.amiiboName"></p>
       <!-- <h1 v-html="a.price"></h1> -->
     </div>
   </div>
@@ -67,8 +67,30 @@ export default {
 </script>
 
 <style>
-.container {
+.contenido {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  height: 200px;
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.amiibo {
+  height: 100%;
+  width: auto;
+}
+.name {
+  height: 50%;
+  width: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.name:hover {
+  width: auto;
+  white-space: initial;
+  overflow: visible;
+  cursor: pointer;
 }
 </style>
