@@ -1,10 +1,10 @@
 <template>
   <div class="picture" :style="'background-color:'+a.hexCode">
-    <!-- <img :src="amiibo.image">
-   <h3>{{amiibo.character}}</h3>
-    <p>{{amiibo.amiiboSeries}}</p>-->
-
-    <h1>Hola</h1>
+    <img :src="amiibo.image" />
+    <h3>{{amiibo.character}}</h3>
+    <p>{{amiibo.amiiboSeries}}</p>
+    <!-- <img :src="'https://nintendo.com/' + a.boxArtUrl" alt /> -->
+    <!-- <h1 v-html="a.price"></h1> -->
   </div>
 </template>
 

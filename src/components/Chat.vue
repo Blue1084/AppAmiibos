@@ -1,24 +1,27 @@
 <template>
-  <div class="chat">
-    <div id="post" class="box">Loading posts...</div>
+  <div>
+    <div class="chat card">
+      <div id="post" class="box">Loading posts...</div>
 
-    <div v-for=" (mensaje, i) in mensajes " :key="i">
-      <small>
-        <i>{{mensaje.n}} said</i>
-      </small>
-      <p>{{mensaje.texto}}</p>
+      <div class="nombre card" v-for=" (mensaje, i) in mensajes " :key="i">
+        <small>
+          <i>
+            <b>{{mensaje.n}} said</b>
+          </i>
+        </small>
+        <p>{{mensaje.texto}}</p>
+      </div>
     </div>
-
-    <div class="inputs">
+    <div class="inputs row">
       <textarea
         id="textInput"
         placeholder="Your message..."
         v-model="objetoEnviable.texto"
         v-on:keyup.enter="writeNewPost"
+        class="col-9"
       />
 
-      <button id="login" class="button is-info" v-on:click="login">Login</button>
-      <button id="create-post" class="button is-primary" v-on:click="writeNewPost">Send</button>
+      <button id="create-post" class="button is-primary col-4" v-on:click="writeNewPost">Send</button>
     </div>
   </div>
 </template>
@@ -43,14 +46,7 @@ export default {
 
   methods: {
     //   en el methods incorporamos las funciones que se van a realizar.
-    login() {
-      var provider = new firebase.auth.GoogleAuthProvider();
 
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then(user => alert("Logged"));
-    },
     writeNewPost() {
       this.objetoEnviable.n = firebase.auth().currentUser.displayName;
 
@@ -81,59 +77,30 @@ export default {
     }
   }
 };
-
-// document.getElementById("login").addEventListener("click", login);
-// document.getElementById("create-post").addEventListener("click", writeNewPost);
-
-// getPosts();
-
-// function login() {
-//   var provider = new firebase.auth.GoogleAuthProvider();
-
-//   firebase
-//     .auth()
-//     .signInWithPopup(provider)
-//     .then(user => alert("Logged"));
-// }
-
-// function writeNewPost() {
-//   let mensaje = document.getElementById("textInput").value;
-//   let nombre = firebase.auth().currentUser.displayName;
-
-//   // si el nombre del objeto y el nombre de la variable coincide solo hace falta poner uno solo
-//   // ejemplo: nombre : nombre ---> nombre
-//   let objetoEnviable = {
-//     nombre,
-//     mensaje
-//   };
-
-//   firebase
-//     .database()
-//     .ref("ChatAppAmiibo")
-//     .push(objectoEnviable);
-// }
-
-// function getPosts() {
-//   firebase
-//     .database()
-//     .ref("ChatAppAmiibo")
-//     .on("value", function(data) {
-//       document.getElementById("posts").innerHTML = "";
-
-//       let mensajes = Object.values(data.val());
-//       for (let i = 0; i < mensajes.length; i++) {
-//         let parrafo = document.createElement("p");
-//         let nombre = document.createElement("p");
-
-//         parrafo.innerHTML = mensajes[i].mensaje;
-//         nombre.innerHTML = mensajes[i].nombre;
-
-//         document.getElementById("posts").append(parrafo);
-//         document.getElementById("posts").append(nombre);
-//       }
-//     });
-// }
 </script>
 
-<style>
+<style scoped>
+.nombre {
+  background-color: rgb(194, 193, 193);
+  width: 200px;
+  padding: 5px;
+}
+.chat {
+  height: 450px;
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+textarea {
+  border-color: darkcyan;
+  background-color: lightcyan;
+}
+.row {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 </style>

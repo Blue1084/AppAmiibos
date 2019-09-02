@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 // import Amiibo from '@/components/Amiibo'
 import Home from '@/components/Home'
@@ -26,8 +27,8 @@ export default new VueRouter({
             component: GamesCollections
         },
         // {
-        //     path: "/Amiibo",
-        //     component: Amiibo
+        //     // path: "/Amiibo",
+        //     // component: Amiibo
         // },
     ]
 })
