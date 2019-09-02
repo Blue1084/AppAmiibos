@@ -20,9 +20,6 @@
 </template>
 
 <script>
-import axios from "axios";
-import amiibo from "@/components/Amiibo.vue";
-
 export default {
   created() {
     this.$store.dispatch("getAmiibos");
