@@ -1,36 +1,46 @@
 <template>
-  <div id="app" v-for="(a, index) in amiibos" :key="index">
-    <div class="picture" :style="'background-color:'+a.hexCode">
-      <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
-      <p>{{a.overviewDescription}}</p>
-
-      <p>{{a.}}</p>
-      <img :src="'https://nintendo.com/' + a.boxArtUrl" alt />
-      <h1 v-html="a.price"></h1>
+  <div>
+    <div id="app">
+      <div class="picture" :style="'background-color:'+amiibo.hexCode">
+        <h2 class="name">{{amiibo.amiiboName}}</h2>
+        <img class="amiibo" :src="'https://nintendo.com/' + amiibo.figureURL" alt />
+        <p v-html="amiibo.overviewDescription"></p>
+        <img :src="'https://nintendo.com/' + amiibo.boxArtUrl" alt />
+        <h3>{{amiibo.price}}$</h3>
+      </div>
     </div>
+    {{$route.params.upc}}
   </div>
 </template>
 
 <script>
 export default {
+  props: ["upc"],
   created() {
     this.$store.dispatch("getAmiibos");
   },
   computed: {
-    amiibos() {
-      return this.$store.getters.getamiiboStore;
+    amiibo() {
+      return this.$store.getters.getamiiboStore.find(a => a.upc == this.upc);
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .picture {
   height: 100%;
   width: 100%;
   text-align: center;
   border-style: solid;
   border-color: lightslategrey;
-  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.amiibo {
+  width: 300px;
+  height: 300px;
+}
+.name {
+  margin-top: 50px;
 }
 </style>

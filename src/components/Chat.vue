@@ -93,9 +93,14 @@ export default {
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
+  background-image: url("../assets/logo_a.png");
+  background-repeat: no-repeat;
+  background-size: 350px 350px;
+  background-position: center;
 }
 textarea {
   border-color: darkcyan;
+  border-style: solid;
   background-color: lightcyan;
 }
 .row {

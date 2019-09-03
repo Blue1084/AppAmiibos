@@ -10,11 +10,14 @@
       <amiibo :amiibo="amiibo"></amiibo>
     </div>-->
 
-    <div class="contenido container col-5" v-for="(a, index) in amiibos" :key="index">
-      <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
+    <div class="container col-5" v-for="(a, index) in amiibos" :key="index">
+      <router-link class="contenido" :to="'/Amiibo/' + a.upc">
+        <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
+        <p class="name" v-html="a.amiiboName"></p>
+      </router-link>
+
       <!--ponemos  https://nintendo.com/  para llamar a la seccion de la figura por que en la api tenemos una string de texto de una url inacabada
       y para que el src la pueda coger necesitamos ponerle el inicio de la url para que pueda localizarla y traerla-->
-      <p class="name">{{a.amiiboName}}</p>
     </div>
   </div>
 </template>
@@ -49,7 +52,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   height: 200px;
-  width: 200px;
+  width: 150px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -60,6 +63,7 @@ export default {
 .name {
   height: 50%;
   width: auto;
+  color: black;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 // import Amiibo from '@/components/Amiibo'
 import Home from '@/components/Home'
-
+import Amiibo from '@/components/Amiibo'
 import Chat from '@/components/Chat'
 import GamesCollections from '@/components/GamesCollections'
 
@@ -26,9 +26,10 @@ export default new VueRouter({
             path: "/GamesCollections",
             component: GamesCollections
         },
-        // {
-        //     // path: "/Amiibo",
-        //     // component: Amiibo
-        // },
+        {
+            path: "/Amiibo/:upc",
+            component: Amiibo,
+            props: true
+        },
     ]
 })
