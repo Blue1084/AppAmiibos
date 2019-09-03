@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-// import Amiibo from '@/components/Amiibo'
 import Home from '@/components/Home'
 import Amiibo from '@/components/Amiibo'
 import Chat from '@/components/Chat'
-import GamesCollections from '@/components/GamesCollections'
+import FranchiseCollections from '@/components/FranchiseCollections'
+import Franchise from '@/components/Franchise'
 
 
 
@@ -23,12 +23,17 @@ export default new VueRouter({
             component: Chat
         },
         {
-            path: "/GamesCollections",
-            component: GamesCollections
+            path: "/FranchiseCollections",
+            component: FranchiseCollections
         },
         {
-            path: "/Amiibo/:upc",
+            path: "/Amiibo/:upc", //dynamic routing (se utiliza para enlazar un elemento con una vista vue)
             component: Amiibo,
+            props: true
+        },
+        {
+            path: "/Franchise/:franchise",
+            component: Franchise,
             props: true
         },
     ]
