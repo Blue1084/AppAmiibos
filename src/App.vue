@@ -22,6 +22,7 @@
         </div>
         <div class="navbar-nav ml-auto">
           <button id="login" class="button is-info" v-on:click="login">Login</button>
+          <button id="logout" class="button is-info" v-on:click="logout">Logout</button>
         </div>
       </div>
     </nav>
@@ -53,7 +54,13 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        .then(user => alert("Logged"));
+        .then(user => this.$router.alert("You are logged"));
+    },
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => this.$router.replace("Home"));
     }
   },
   created() {

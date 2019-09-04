@@ -6,9 +6,16 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-
 new Vue({
-  router,
   store,
+  router,
   render: h => h(App),
 }).$mount('#app')
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    store.state.user = user;
+  } else {
+    store.state.user = null;
+  }
+})

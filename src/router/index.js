@@ -6,13 +6,16 @@ import Amiibo from '@/components/Amiibo'
 import Chat from '@/components/Chat'
 import FranchiseCollections from '@/components/FranchiseCollections'
 import Franchise from '@/components/Franchise'
+import store from '../store'
+import Login from '@/components/Login'
+
 
 
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
-    routes: [{
+const router = new VueRouter({ //creamos una constante por que estamos haciendo referencia al router en 
+    routes: [{ //en la seccion de beforEach. Ahora podemos guardar en la constante lo que renderiza el beforeEach
 
 
             path: "/Home",
@@ -20,7 +23,10 @@ export default new VueRouter({
         },
         {
             path: "/Chat",
-            component: Chat
+            component: Chat,
+            meta: {
+                autentificado: true
+            }
         },
         {
             path: "/FranchiseCollections",
@@ -36,5 +42,33 @@ export default new VueRouter({
             component: Franchise,
             props: true
         },
+        {
+            path: "/Login",
+            component: Login,
+
+        },
+
     ]
 })
+
+router.beforeEach((to, from, next) => { //beforeEach antes de acceder a cada ruta comprueba los parametros indicados
+    //to a donde vas from de donde vienes y next se puede validarse como true o false para dar paso o no dependiendo del estado (si estas login o no )
+    let usuario = store.state.user;
+    console.log(usuario)
+    //true si me he identificado si no devuelve false o null. si si esta identificado esto devolvera los datos de un usuario 
+    //ponemos store para recibir el usuario desde el store
+    let authenticator = to.matched.some(record => record.meta.autentificado) // el metodo some testea si al menos uno de esos elementos corresponde
+    // estrellamos cada uno de los registros (record) de el router y preguntando si alguno de ellos requiere autentificacion.
+    if (authenticator && !usuario) { //con este if le digo que si la ruta necesita autentificacion y no tiene usuario entonces lo devuelva al login
+        next({
+            path: '/Login'
+        })
+    }
+    next();
+
+
+
+})
+
+export default router; // debido a que hemos tenido que referenciar router hemos tenido que 
+// exportarlo desde aqui.
