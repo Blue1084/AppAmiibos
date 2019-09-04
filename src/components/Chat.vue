@@ -81,7 +81,7 @@ export default {
 
 <style scoped>
 .nombre {
-  background-color: rgb(194, 193, 193);
+  background-color: rgb(221, 217, 217);
   width: 200px;
   padding: 5px;
 }
@@ -102,6 +102,7 @@ textarea {
   border-color: darkcyan;
   border-style: solid;
   background-color: lightcyan;
+  border-radius: 5px;
 }
 .row {
   display: flex;

@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .sizeimage {
   height: auto;
   width: 300px;

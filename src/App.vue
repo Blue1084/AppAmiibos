@@ -16,7 +16,7 @@
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav">
-          <router-link to="/home" class="nav-item nav-link active">Home</router-link>
+          <router-link to="/home" class="nav-item nav-link">Home</router-link>
           <router-link to="/FranchiseCollections" class="nav-item nav-link">Fanchise collections</router-link>
           <router-link to="/Chat" class="nav-item nav-link">Chat</router-link>
         </div>
