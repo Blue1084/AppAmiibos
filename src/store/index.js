@@ -8,6 +8,7 @@ Vue.use(vuex)
 export default new vuex.Store({
     state: { // es como si mandaramos la informacion a una base de datos
         amiibos: [],
+        user: null
 
     },
     getters: {

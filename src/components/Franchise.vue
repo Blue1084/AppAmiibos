@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="bodyfranchise">
-      <div class="amiiboFranchise" v-for="a in amiibos" :key="a">
+      <div class="amiiboFranchise" v-for="(a,i) in amiibos" :key="i">
         <h5 v-html="a.amiiboName"></h5>
-        <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
+        <router-link :to="'/Amiibo/' + a.upc">
+          <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
+        </router-link>
         <p>{{a.series}}</p>
       </div>
     </div>

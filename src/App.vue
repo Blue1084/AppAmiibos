@@ -16,13 +16,14 @@
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav">
-          <router-link to="/home" class="nav-item nav-link">Home</router-link>
+          <router-link to="/AllAmiibos" class="nav-item nav-link">All Amiibos</router-link>
           <router-link to="/FranchiseCollections" class="nav-item nav-link">Fanchise collections</router-link>
           <router-link to="/Chat" class="nav-item nav-link">Chat</router-link>
+          <router-link to="/YarnsAmiibos" class="nav-item nav-link">Yarns</router-link>
         </div>
         <div class="navbar-nav ml-auto">
-          <button id="login" class="button is-info" v-on:click="login">Login</button>
-          <button id="logout" class="button is-info" v-on:click="logout">Logout</button>
+          <button id="login" class="button is-info" v-on:click="login" v-if="!usuario">Login</button>
+          <button id="logout" class="button is-info" v-on:click="logout" v-if="usuario">Logout</button>
         </div>
       </div>
     </nav>
@@ -54,17 +55,22 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provider)
-        .then(user => this.$router.alert("You are logged"));
+        .then();
     },
     logout() {
       firebase
         .auth()
         .signOut()
-        .then(() => this.$router.replace("Home"));
+        .then(() => this.$router.replace("AllAmiibos"));
     }
   },
   created() {
     this.$store.dispatch("getAmiibos");
+  },
+  computed: {
+    usuario() {
+      return this.$store.state.user;
+    }
   }
 };
 </script>

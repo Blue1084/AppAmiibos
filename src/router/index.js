@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import Home from '@/components/Home'
+import AllAmiibos from '@/components/AllAmiibos'
 import Amiibo from '@/components/Amiibo'
 import Chat from '@/components/Chat'
 import FranchiseCollections from '@/components/FranchiseCollections'
 import Franchise from '@/components/Franchise'
 import store from '../store'
 import Login from '@/components/Login'
+import YarnsAmiibos from '@/components/YarnsAmiibos'
+
 
 
 
@@ -18,8 +20,8 @@ const router = new VueRouter({ //creamos una constante por que estamos haciendo 
     routes: [{ //en la seccion de beforEach. Ahora podemos guardar en la constante lo que renderiza el beforeEach
 
 
-            path: "/Home",
-            component: Home
+            path: "/AllAmiibos",
+            component: AllAmiibos
         },
         {
             path: "/Chat",
@@ -45,6 +47,11 @@ const router = new VueRouter({ //creamos una constante por que estamos haciendo 
         {
             path: "/Login",
             component: Login,
+
+        },
+        {
+            path: "/YarnsAmiibos",
+            component: YarnsAmiibos,
 
         },
 
