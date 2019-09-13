@@ -20,13 +20,11 @@
 
 <script>
 export default {
-  props: ["unixTimestamp"],
+  props: ["upc"],
 
   computed: {
     amiibo() {
-      return this.$store.getters.getamiiboStore.find(
-        a => a.unixTimestamp == this.unixTimestamp
-      );
+      return this.$store.getters.getamiiboStore.find(a => a.upc == this.upc);
     }
   }
 };

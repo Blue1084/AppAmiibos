@@ -37,7 +37,7 @@ const router = new VueRouter({ //creamos una constante por que estamos haciendo 
             component: FranchiseCollections
         },
         {
-            path: "/Amiibo/:unixTimestamp", //dynamic routing (se utiliza para enlazar un elemento con una vista vue)
+            path: "/Amiibo/:upc", //dynamic routing (se utiliza para enlazar un elemento con una vista vue)
             component: Amiibo,
             props: true
         },
