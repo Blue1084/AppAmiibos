@@ -1,23 +1,30 @@
 <template>
   <div>
-    <div clas="bodyYarns" v-for="(a,p) in amiibosYarns" :key="p">
-      <!-- <img class="amiiboimg" :src="'https://nintendo.com/' + a.figureURL" alt /> -->
-      <div>{{a}}</div>
+    <button class="arriba" @click="$router.go(-1)">< Back</button>
+    <div clas="bodyYarns" v-for=" a in amiibosYarns" :key="a">
+      <router-link class="contenido" :to="'/Amiibo/' + a.unixTimestamp">
+        <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
+        <p class="name" v-html="a.amiiboName"></p>
+      </router-link>
     </div>
+    <button class="abajo" @click="$router.go(-1)">< Back</button>
   </div>
 </template>
 <script>
 export default {
-  //   created() {
-  //     this.$store.dispatch("getAmiibos");
-  //   },
-
   computed: {
     amiibosYarns() {
-      return this.$store.getters.getamiiboStore.filter(a => a.type == "Yarns");
+      return this.$store.getters.getamiiboStore.filter(a => a.type == "Plush");
     }
   }
 };
 </script>
 <style scoped>
+.arriba {
+  margin-top: 50px;
+}
+.abajo {
+  margin-bottom: 50px;
+  float: right;
+}
 </style>

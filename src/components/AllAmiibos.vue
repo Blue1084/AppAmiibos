@@ -4,7 +4,7 @@
 
     <div id="app" class="row">
       <div class="container col-5" v-for="(a, h) in filterAllAmiibos" :key="h">
-        <router-link class="contenido" :to="'/Amiibo/' + a.upc">
+        <router-link class="contenido" :to="'/Amiibo/' + a.unixTimestamp">
           <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
           <p class="name" v-html="a.amiiboName"></p>
         </router-link>

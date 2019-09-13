@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <button id="login" class="button is-info botonlogin" v-on:click="login">Login</button>
+  <div class="bodylogin">
+    <img src />
+    <button class="button is-info botonlogin" v-on:click="login">
+      <img src="../assets/google_bottom.png" />
+    </button>
+    <button @click="$router.go(-1)">< Back</button>
   </div>
 </template>
 <script>
@@ -11,12 +15,26 @@ export default {
 
       firebase.auth().signInWithPopup(provider);
     }
+  },
+  computed: {
+    usuario() {
+      return this.$store.state.user;
+    }
   }
 };
 </script>
 <style scoped>
-.botonlogin {
-  margin-top: 300px;
-  margin-left: 150px;
+img {
+  width: 300px;
+}
+
+.bodylogin {
+  height: 500px;
+  width: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-wrap: wrap;
 }
 </style>

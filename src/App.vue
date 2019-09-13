@@ -15,15 +15,73 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="btn-group">
+          <button
+            class="btn btn-sm dropdown-toggle botonamiibo"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Amiibos</button>
+          <div class="dropdown-menu">
+            <router-link
+              to="/AllAmiibos"
+              class="nav-item nav-link"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >All Amiibos</router-link>
+            <router-link
+              to="/YarnsAmiibos"
+              class="nav-item nav-link"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >Yarns</router-link>
+            <router-link
+              to="/CardsAmiibos"
+              class="nav-item nav-link"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >Cards</router-link>
+            <router-link
+              to="/FiguresAmiibos"
+              class="nav-item nav-link"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+            >Figures</router-link>
+          </div>
+        </div>
+
         <div class="navbar-nav">
-          <router-link to="/AllAmiibos" class="nav-item nav-link">All Amiibos</router-link>
-          <router-link to="/FranchiseCollections" class="nav-item nav-link">Fanchise collections</router-link>
-          <router-link to="/Chat" class="nav-item nav-link">Chat</router-link>
-          <router-link to="/YarnsAmiibos" class="nav-item nav-link">Yarns</router-link>
+          <router-link
+            to="/FranchiseCollections"
+            class="nav-item nav-link"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >Fanchise collections</router-link>
+          <router-link
+            to="/Chat"
+            class="nav-item nav-link"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+          >Chat</router-link>
         </div>
         <div class="navbar-nav ml-auto">
-          <button id="login" class="button is-info" v-on:click="login" v-if="!usuario">Login</button>
-          <button id="logout" class="button is-info" v-on:click="logout" v-if="usuario">Logout</button>
+          <button
+            id="login"
+            class="button is-info"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+            v-on:click="login"
+            v-if="!usuario"
+          >Login</button>
+          <button
+            id="logout"
+            class="button is-info"
+            data-toggle="collapse"
+            data-target=".navbar-collapse.show"
+            v-on:click="logout"
+            v-if="usuario"
+          >Logout</button>
         </div>
       </div>
     </nav>
@@ -84,5 +142,8 @@ footer {
 }
 .routerview {
   padding-top: 20px;
+}
+.botonamiibo {
+  padding-left: 0px;
 }
 </style>

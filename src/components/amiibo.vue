@@ -2,7 +2,8 @@
   <div>
     <div id="app">
       <div class="picture" :style="'background-color:'+amiibo.hexCode">
-        <h2 class="name">{{amiibo.amiiboName}}</h2>
+        <button @click="$router.go(-1)">< Back</button>
+        <h2 class="name" v-html="amiibo.amiiboName"></h2>
         <p>{{amiibo.series}}</p>
         <img class="amiibo" :src="'https://nintendo.com/' + amiibo.figureURL" alt />
         <p v-html="amiibo.overviewDescription"></p>
@@ -19,11 +20,13 @@
 
 <script>
 export default {
-  props: ["upc"],
+  props: ["unixTimestamp"],
 
   computed: {
     amiibo() {
-      return this.$store.getters.getamiiboStore.find(a => a.upc == this.upc);
+      return this.$store.getters.getamiiboStore.find(
+        a => a.unixTimestamp == this.unixTimestamp
+      );
     }
   }
 };
@@ -36,13 +39,22 @@ export default {
   text-align: center;
   border-style: solid;
   border-color: lightslategrey;
-  padding-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
 .amiibo {
   width: 300px;
   height: 300px;
 }
 .name {
   margin-top: 50px;
+}
+
+button {
+  margin-top: 10px;
+  float: left;
 }
 </style>

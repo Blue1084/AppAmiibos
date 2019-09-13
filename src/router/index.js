@@ -9,6 +9,8 @@ import Franchise from '@/components/Franchise'
 import store from '../store'
 import Login from '@/components/Login'
 import YarnsAmiibos from '@/components/YarnsAmiibos'
+import CardsAmiibos from '@/components/CardsAmiibos'
+import FiguresAmiibos from '@/components/FiguresAmiibos'
 
 
 
@@ -35,7 +37,7 @@ const router = new VueRouter({ //creamos una constante por que estamos haciendo 
             component: FranchiseCollections
         },
         {
-            path: "/Amiibo/:upc", //dynamic routing (se utiliza para enlazar un elemento con una vista vue)
+            path: "/Amiibo/:unixTimestamp", //dynamic routing (se utiliza para enlazar un elemento con una vista vue)
             component: Amiibo,
             props: true
         },
@@ -52,6 +54,16 @@ const router = new VueRouter({ //creamos una constante por que estamos haciendo 
         {
             path: "/YarnsAmiibos",
             component: YarnsAmiibos,
+
+        },
+        {
+            path: "/CardsAmiibos",
+            component: CardsAmiibos,
+
+        },
+        {
+            path: "/FiguresAmiibos",
+            component: FiguresAmiibos,
 
         },
 

@@ -1,9 +1,18 @@
 <template>
   <div>
-    <div class="chat card">
-      <div id="post" class="box">Loading posts...</div>
+    <div class="chat">
+      <div id="post">Loading posts...</div>
 
-      <div class="nombre card" v-for=" (mensaje, i) in mensajes " :key="i">
+      <div
+        class="nombre card"
+        v-for=" (mensaje, i) in mensajes "
+        :key="i"
+        :class="{owner: mensaje.n == $store.state.user.displayName, invitado: mensaje.n !== $store.state.user.displayName}"
+      >
+        <!-- podemos bindear una class (:class) para poder darle una propiedad de tal forma que solo lo que 
+      le digamos adquirira esa class (por ejemplo que otorgue la class owner a los nombres que coincidan con el display del user. 
+        Con esto podemos diferenciar dos tipos de elementos y darles propiedades diferentes.)-->
+
         <small>
           <i>
             <b>{{mensaje.n}} said</b>
@@ -83,7 +92,15 @@ export default {
 .nombre {
   background-color: rgb(221, 217, 217);
   width: 200px;
+  margin-bottom: 10px;
+
   padding: 5px;
+}
+
+.owner {
+  background-color: rgb(130, 212, 212);
+  display: flex;
+  float: right;
 }
 .chat {
   height: 450px;
@@ -97,6 +114,11 @@ export default {
   background-repeat: no-repeat;
   background-size: 350px 350px;
   background-position: center;
+  border: 2px solid;
+  border-color: grey;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 10px;
 }
 textarea {
   border-color: darkcyan;

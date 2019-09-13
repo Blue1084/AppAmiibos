@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="bodyfranchise">
+      <button @click="$router.go(-1)">< Back</button>
       <div class="amiiboFranchise" v-for="(a,i) in amiibos" :key="i">
         <h5 v-html="a.amiiboName"></h5>
-        <router-link :to="'/Amiibo/' + a.upc">
+        <router-link :to="'/Amiibo/' + a.unixTimestamp">
           <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
         </router-link>
         <p>{{a.series}}</p>
@@ -51,5 +52,8 @@ img {
   margin-bottom: 15px;
   border-color: darkgrey;
   margin-left: 15px;
+}
+button {
+  float: left;
 }
 </style>
