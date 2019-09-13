@@ -4,7 +4,7 @@
     <button class="button is-info botonlogin" v-on:click="login">
       <img src="../assets/google_bottom.png" />
     </button>
-    <button @click="$router.go(-1)">< Back</button>
+    <button @click="$router.go(-1)">&#60;Back</button>
   </div>
 </template>
 <script>

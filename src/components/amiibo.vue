@@ -2,7 +2,7 @@
   <div>
     <div id="app">
       <div class="picture" :style="'background-color:'+amiibo.hexCode">
-        <button @click="$router.go(-1)">< Back</button>
+        <button @click="$router.go(-1)">&#60;Back</button>
         <h2 class="name" v-html="amiibo.amiiboName"></h2>
         <p>{{amiibo.series}}</p>
         <img class="amiibo" :src="'https://nintendo.com/' + amiibo.figureURL" alt />

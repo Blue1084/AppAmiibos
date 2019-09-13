@@ -1,13 +1,13 @@
 <template>
   <div>
-    <button class="arriba" @click="$router.go(-1)">< Back</button>
+    <button class="arriba" @click="$router.go(-1)">&#60;Back</button>
     <div clas="bodyYarns" v-for=" a in amiibosCards" :key="a">
       <router-link class="contenido" :to="'/Amiibo/' + a.unixTimestamp">
         <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
         <p class="name" v-html="a.amiiboName"></p>
       </router-link>
     </div>
-    <button class="abajo" @click="$router.go(-1)">< Back</button>
+    <button class="abajo" @click="$router.go(-1)">&#60;Back</button>
   </div>
 </template>
 <script>
