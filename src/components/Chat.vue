@@ -104,7 +104,7 @@ export default {
 }
 .chat {
   height: 450px;
-  margin-top: 50px;
+  margin-top: 35px;
   padding-top: 10px;
   padding-bottom: 10px;
   overflow-y: scroll;
@@ -125,6 +125,8 @@ textarea {
   border-style: solid;
   background-color: lightcyan;
   border-radius: 5px;
+  padding-top: 10px;
+  margin-top: 5px;
 }
 .row {
   display: flex;

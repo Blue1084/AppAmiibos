@@ -1,13 +1,19 @@
 <template>
   <div>
-    <button class="arriba" @click="$router.go(-1)">&#60;Back</button>
-    <div clas="bodyYarns" v-for=" a in amiibosYarns" :key="a">
+    <button class="arriba" @click="$router.go(-1)">
+      &#60;
+      <img class="back" src="../assets/link_back_2.jpg" />
+    </button>
+    <div clas="bodyYarns" v-for=" (a,p) in amiibosYarns" :key="p">
       <router-link class="contenido" :to="'/Amiibo/' + a.upc">
         <img class="amiibo" :src="'https://nintendo.com/' + a.figureURL" alt />
         <p class="name" v-html="a.amiiboName"></p>
       </router-link>
     </div>
-    <button class="abajo" @click="$router.go(-1)">&#60;Back</button>
+    <button class="abajo" @click="$router.go(-1)">
+      &#60;
+      <img class="back" src="../assets/link_back_2.jpg" />
+    </button>
   </div>
 </template>
 <script>
@@ -22,10 +28,12 @@ export default {
 <style scoped>
 .arriba {
   margin-top: 50px;
+  color: rgb(71, 159, 194);
 }
 .abajo {
   margin-bottom: 50px;
   float: right;
+  color: rgb(71, 159, 194);
 }
 .amiibo {
   height: 300px;
@@ -41,5 +49,9 @@ p {
   text-decoration: none;
   color: black;
   text-align: center;
+}
+.back {
+  height: 45px;
+  width: 45px;
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
   <div>
+    <button class="boton" @click="$router.go(-1)">
+      &#60;
+      <img class="back" src="../assets/link_back_2.jpg" />
+    </button>
     <div class="bodyfranchise">
-      <button @click="$router.go(-1)">&#60;Back</button>
       <div class="amiiboFranchise" v-for="(a,i) in amiibos" :key="i">
         <h5 v-html="a.amiiboName"></h5>
         <router-link :to="'/Amiibo/' + a.upc">
@@ -32,7 +35,7 @@ export default {
 </script>
 <style scoped>
 .bodyfranchise {
-  padding-top: 50px;
+  padding-top: 10px;
   padding-bottom: 50px;
   text-align: center;
   display: flex;
@@ -53,7 +56,13 @@ img {
   border-color: darkgrey;
   margin-left: 15px;
 }
-button {
-  float: left;
+.boton {
+  margin-top: 25px;
+  text-align: left;
+  color: rgb(71, 159, 194);
+}
+.back {
+  height: 45px;
+  width: 45px;
 }
 </style>

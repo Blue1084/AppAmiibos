@@ -4,7 +4,12 @@
     <button class="button is-info botonlogin" v-on:click="login">
       <img src="../assets/google_bottom.png" />
     </button>
-    <button @click="$router.go(-1)">&#60;Back</button>
+    <router-link :to="'/chat/'" class="botonchat">
+      <button>
+        <img class="backChat" src="../assets/mario_back.jpg" />
+        Go to Chat
+      </button>
+    </router-link>
   </div>
 </template>
 <script>
@@ -36,5 +41,13 @@ img {
   justify-content: center;
   margin-right: 10px;
   flex-wrap: wrap;
+  margin-top: 40px;
+}
+.botonchat {
+  padding-top: 20px;
+}
+.backChat {
+  height: 100px;
+  width: 100px;
 }
 </style>
