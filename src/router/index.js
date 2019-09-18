@@ -16,6 +16,7 @@ import FiguresAmiibos from '@/components/FiguresAmiibos'
 
 
 
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({ //creamos una constante por que estamos haciendo referencia al router en 

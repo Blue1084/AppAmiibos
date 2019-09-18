@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import vuex from 'vuex'
 import axios from 'axios'
+import VueChatScroll from 'vue-chat-scroll'
 
+
+Vue.use(VueChatScroll)
 Vue.use(vuex)
+
 
 
 export default new vuex.Store({

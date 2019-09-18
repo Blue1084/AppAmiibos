@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="chat">
+    <div class="chat" v-chat-scroll>
       <div id="post">Loading posts...</div>
 
       <div
